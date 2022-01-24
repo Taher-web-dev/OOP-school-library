@@ -32,7 +32,10 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
-
+Style/ClassVars:
+  Enabled: false
+Style/OptionalBooleanParameter:
+  Enabled: false
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
@@ -49,4 +52,6 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
+  Enabled: false
+Naming/PredicateName:
   Enabled: false
