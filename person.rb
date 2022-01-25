@@ -1,4 +1,4 @@
-require './corrector.rb'
+require './corrector'
 class Person
   @@no_of_person = 0
   attr_reader :id
@@ -10,7 +10,7 @@ class Person
     @parent_permission = parent_permission
     @name = name
     @@no_of_person += 1
-    @corrector = Corrector.new()
+    @corrector = Corrector.new
   end
 
   def is_of_age?
