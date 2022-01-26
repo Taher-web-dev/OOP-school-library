@@ -10,7 +10,9 @@ def list_all_books
 end
 
 def list_all_people
-  puts 'list of people'
+  Person.all_persons.each do |per|
+    puts "[#{per.class.name}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
+  end
 end
 
 def create_person(option)
@@ -50,8 +52,8 @@ end
 
 def create_rental
   all_books = Book.all_books
-  all_person = Person.all_persons
   nbr_books = all_books.count
+  all_person = Person.all_persons
   nbr_persons = all_person.size
   book = -1
   person = -1
