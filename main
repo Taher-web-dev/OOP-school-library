@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
 require './student'
 require './teacher'
-def list_all_books; end
+require './book'
+def list_all_books
+  Book.all_books.each do |book|
+    puts "Title: #{book.title}, Author: #{book.author}"
+  end
+end
 
 def list_all_people
   puts 'list of people'
@@ -34,6 +39,11 @@ def create_person(option)
 end
 
 def create_book
+  print 'Title: '
+  title = gets.chomp
+  print 'Author: '
+  author = gets.chomp
+  Book.new(title, author)
   puts 'Book created successfully'
 end
 
