@@ -10,7 +10,7 @@ AllCops:
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
-  Max: 20
+  Max: 45
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
@@ -54,4 +54,6 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: false
 Naming/PredicateName:
+  Enabled: false
+Metrics/CyclomaticComplexity:
   Enabled: false

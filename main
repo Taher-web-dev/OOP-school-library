@@ -1,24 +1,29 @@
 #!/usr/bin/env ruby
-def list_all_books
-end
+def list_all_books; end
+
 def list_all_people
-  puts "list of people"
+  puts 'list of people'
 end
-def create_person(option)
-  puts "Person created successfully"
+
+def create_person(_option)
+  puts 'Person created successfully'
 end
+
 def create_book
-  puts "Book created successfully"
+  puts 'Book created successfully'
 end
+
 def create_rental
-  puts "Rental created successfully"
+  puts 'Rental created successfully'
 end
+
 def list_rentals
-  puts "list rentals."
+  puts 'list rentals.'
 end
+
 def main
-    puts "Welcome to School Libray App!\n"
-    option_text = "
+  puts "Welcome to School Libray App!\n"
+  option_text = "
     Please choose an option by enterin a number:\n
     1 - List all books\n
     2 - List all people\n
@@ -28,36 +33,35 @@ def main
     6 - List all rentals for a given person id\n
     7 - Exit\n
     "
-    person_type_question = "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
-    loop do 
-      puts option_text
-      case option = gets.chomp.to_i
-      when 1
-        list_all_books
-      when 2
-        list_all_people
-      when 3
-        p = 0
-        loop do 
-          puts person_type_question
-          p = gets.chomp.to_i
-          if [1,2].include? p
-            break
-          end
-        end
-        create_person(p)
-      when 4
-        create_book
-      when 5
-        create_rental
-      when 6
-      when 7
-        puts "Thank you for using this app!"
-        break
-      else
-        next
+  person_type_question = 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+  loop do
+    puts option_text
+    option = gets.chomp.to_i
+    case option
+    when 1
+      list_all_books
+    when 2
+      list_all_people
+    when 3
+      p = 0
+      loop do
+        puts person_type_question
+        p = gets.chomp.to_i
+        break if [1, 2].include? p
       end
+      create_person(p)
+    when 4
+      create_book
+    when 5
+      create_rental
+    when 6
+      list_rentals
+    when 7
+      puts 'Thank you for using this app!'
+      break
+    else
+      next
     end
-
+  end
 end
 main
