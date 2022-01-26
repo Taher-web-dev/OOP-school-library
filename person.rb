@@ -4,6 +4,7 @@ class Person
   attr_reader :id, :rentals
   attr_accessor :name, :age
 
+  @@all_persons = []
   def initialize(age, name = 'Unknown', parent_permission = true)
     @id = @@no_of_person
     @age = age
@@ -31,5 +32,9 @@ class Person
   def add_rental(rental)
     @rentals << rental
     rental.person = self
+  end
+
+  def self.all_persons
+    @@all_persons
   end
 end

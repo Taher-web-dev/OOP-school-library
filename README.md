@@ -25,7 +25,7 @@ $ git git@github.com:Taher-web-dev/OOP-school-library.git
 ```
 $ cd OOP-school-library.
 ```
-
+- Finally run <b>main</b> in your console.
 
 
 ## Authors
