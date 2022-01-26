@@ -3,9 +3,7 @@ class Student < Person
   def initialize(age, classroom = nil, name = 'Unknown', parent_permission = true)
     super(age, name, parent_permission)
     @classroom = classroom
-    if classroom != nil
-      classroom.students << self
-    end
+    classroom.students << self unless classroom.nil?
   end
 
   def play_hooky
