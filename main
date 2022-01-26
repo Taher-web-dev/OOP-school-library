@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require './student.rb'
+require './teacher.rb'
 def list_all_books; end
 
 def list_all_people
@@ -6,6 +8,32 @@ def list_all_people
 end
 
 def create_person(_option)
+  age = 0
+  loop do 
+    print("Age: ")
+    age = gets.chomp.to_i
+    if age > 0
+        break
+    end
+  end
+  print "Name: "
+  name = gets.chomp
+  case _option
+  when 1
+    permission =''
+    loop do 
+      print "Has parent permission? [Y/N]: "
+      permission = gets.chomp
+      if ['y','n'].include? permission.downcase
+        break
+      end
+    end
+    permission.downcase == 'y' ? Student.new(age,nil,name,true): Student.new(age,nil,name,false)
+  else
+    print "Specialization: "
+    specialization = gets.chomp
+    Teacher.new(age,specialization,name)
+  end  
   puts 'Person created successfully'
 end
 
