@@ -82,7 +82,14 @@ def create_rental
 end
 
 def list_rentals
-  puts 'list rentals.'
+  print 'ID of person: '
+  id = gets.chomp.to_i
+  all_person = Person.all_persons
+  selected_person = all_person.find { |person| person.id == id }
+  all_rentals = selected_person.rentals
+  all_rentals.each do |rental|
+    puts "Date: #{rental.date}, Book #{rental.book.title} by #{rental.book.author}"
+  end
 end
 
 def main
