@@ -35,6 +35,10 @@ $ cd OOP-school-library.
 - GitHub: [@Taher-web-dev](https://github.com/Taher-web-dev)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/taher-haggui/)
 
+👤 **Gordon Tinyefuza**
+
+- GitHub: [@1GORDON](https://github.com/1GORDON)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tinyefuza-gordon/)
 
 ## 🤝 Contributing
 
