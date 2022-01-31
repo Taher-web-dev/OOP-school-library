@@ -94,22 +94,9 @@ def list_rentals
   end
 end
 
-def main
-  puts "Welcome to School Libray App!\n"
-  option_text = "
-    Please choose an option by enterin a number:\n
-    1 - List all books\n
-    2 - List all people\n
-    3 - Create a person\n
-    4 - Create a book\n
-    5 - Create a rental\n
-    6 - List all rentals for a given person id\n
-    7 - Exit\n
-    "
+def run_programme(option, option_text)
   person_type_question = 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-  loop do
-    puts option_text
-    option = gets.chomp.to_i
+  while option != 7
     case option
     when 1
       list_all_books
@@ -129,12 +116,29 @@ def main
       create_rental
     when 6
       list_rentals
-    when 7
-      puts 'Thank you for using this app!'
-      break
-    else
-      next
     end
+    puts option_text
+    option = gets.chomp.to_i
+    next
   end
+  puts 'Thank you for using this app!'
 end
+
+def main
+  puts "Welcome to School Libray App!\n"
+  option_text = "
+    Please choose an option by enterin a number:\n
+    1 - List all books\n
+    2 - List all people\n
+    3 - Create a person\n
+    4 - Create a book\n
+    5 - Create a rental\n
+    6 - List all rentals for a given person id\n
+    7 - Exit\n
+    "
+  puts option_text
+  option = gets.chomp.to_i
+  run_programme(option, option_text)
+end
+
 main
