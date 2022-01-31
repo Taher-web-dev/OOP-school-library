@@ -62,7 +62,7 @@ def create_rental
   loop do
     print 'Date: '
     date = gets.chomp
-    break if date.match(%r{\d{4}/\d{1,2}/\d{1,2}$})
+    break if date.match(%r{\d{2,4}/\d{1,2}/\d{1,2}$})
   end
   Rental.new(date, all_person[person], all_books[book])
   puts 'Rental created successfully'
