@@ -1,10 +1,12 @@
 require './corrector'
+require './all_persons'
 class Person
   @@no_of_person = 0
   attr_reader :id, :rentals
   attr_accessor :name, :age
 
-  @@all_persons = []
+  ALL_PERSONS = AllPersons.new
+  # @@all_persons = []
   def initialize(age, name = 'Unknown', parent_permission = true)
     @id = @@no_of_person
     @age = age
@@ -13,6 +15,7 @@ class Person
     @@no_of_person += 1
     @corrector = Corrector.new
     @rentals = []
+    ALL_PERSONS.all_persons << self
   end
 
   def is_of_age?
