@@ -3,11 +3,7 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
-def list_all_books
-  Book.all_books.each do |book|
-    puts "Title: #{book.title}, Author: #{book.author}"
-  end
-end
+require './all_books'
 
 def list_all_people
   Person.all_persons.each do |per|
@@ -99,7 +95,7 @@ def run_programme(option, option_text)
   while option != 7
     case option
     when 1
-      list_all_books
+      Book::ALL_BOOKS.list_all_books
     when 2
       list_all_people
     when 3
