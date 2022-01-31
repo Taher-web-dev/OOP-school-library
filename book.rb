@@ -4,12 +4,10 @@ class Book
   attr_reader :rentals
 
   ALL_BOOKS = AllBooks.new
-  # @@all_books = []
   def initialize(title, author)
     @title = title
     @author = author
     @rentals = []
-    # @@all_books << self
     ALL_BOOKS.all_books << self
   end
 

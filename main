@@ -4,13 +4,11 @@ require './teacher'
 require './book'
 require './rental'
 require './all_books'
-
-def list_all_people
-  Person.all_persons.each do |per|
-    puts "[#{per.class.name}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
-  end
-end
-
+# def list_all_people
+#   Person.all_persons.each do |per|
+#     puts "[#{per.class.name}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
+#   end
+# end
 def create_person(option)
   age = 0
   loop do
@@ -97,7 +95,7 @@ def run_programme(option, option_text)
     when 1
       Book::ALL_BOOKS.list_all_books
     when 2
-      list_all_people
+      Person::ALL_PERSONS.list_all_people
     when 3
       p = 0
       loop do
