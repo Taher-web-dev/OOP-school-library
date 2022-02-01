@@ -5,6 +5,8 @@
    - Add new students or teachers.
    - Add new books.
    - Save records of who borrowed a given book and when.
+   - On exit from your app save all the data (books, people, and rentals) into JSON files. One per type of data you are storing and named accordingly (e.g. rentals.json)
+   - On startup of your app load all data from files. Remember to handle the case when one or more of the files are missing.
 
 ## Built With
 - Ruby
