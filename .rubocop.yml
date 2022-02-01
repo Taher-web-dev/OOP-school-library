@@ -57,3 +57,7 @@ Naming/PredicateName:
   Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
+Style/GuardClause:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false

@@ -35,8 +35,7 @@ def run_programme(option, option_text)
   puts 'Thank you for using this app!'
 end
 
-def main
-  puts "Welcome to School Libray App!\n"
+def load_data
   if File.exist?('./persons.json')
     contenu = JSON.parse(File.read('./persons.json'))
     contenu.each do |person|
@@ -62,13 +61,20 @@ def main
   end
   if File.exist?('./rentals.json')
     contenu = JSON.parse(File.read('./rentals.json'))
-    date = contenu['date']
-    person_id = contenu['id']
-    book_nb = contenu['book_nbr']
-    person = Person::ALL_PERSONS.all_persons.find {|per| per.id == person_id}
-    book = Book::ALL_BOOKS.all_books[book_nb]
-    Rental.new(date, person, book)
+    contenu.each do |rental|
+      date = rental['date']
+      person_id = rental['id'].to_i
+      book_nb = rental['book_nbr'].to_i
+      person = Person::ALL_PERSONS.all_persons.find {|per| per.id == person_id}
+      book = Book::ALL_BOOKS.all_books[book_nb]
+      Rental.new(date, person, book)
+    end
   end
+end
+
+def main
+  puts "Welcome to School Libray App!\n"
+  load_data
   option_text = "
     Please choose an option by enterin a number:\n
     1 - List all books\n
