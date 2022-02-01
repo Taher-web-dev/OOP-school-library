@@ -18,19 +18,19 @@ def create_person(option)
       break if %w[y n].include? permission.downcase
     end
     permission.downcase == 'y' ? Student.new(age, nil, name, true) : Student.new(age, nil, name, false)
-    new_content = {class: 'Student', age: age, name:name, perm: permission=='y' ? true : false }
+    new_content = { class: 'Student', age: age, name: name, perm: permission == 'y' }
   else
     print 'Specialization: '
     specialization = gets.chomp
     Teacher.new(age, specialization, name)
-    new_content = {class: 'Teacher', age: age, specialization: specialization, name: name}
+    new_content = { class: 'Teacher', age: age, specialization: specialization, name: name }
   end
   if File.exist?('./persons.json')
     content = JSON.parse(File.read('./persons.json'))
     content.push(new_content)
-    File.write('./persons.json',JSON.generate(content))
+    File.write('./persons.json', JSON.generate(content))
   else
-    File.write('./persons.json',JSON.generate([new_content]))
+    File.write('./persons.json', JSON.generate([new_content]))
   end
   puts 'Person created successfully'
   sleep 2
@@ -42,13 +42,13 @@ def create_book
   print 'Author: '
   author = gets.chomp
   Book.new(title, author)
-  new_content = {title: title, author: author}
+  new_content = { title: title, author: author }
   if File.exist?('./books.json')
     content = JSON.parse(File.read('./books.json'))
     content.push(new_content)
-    File.write('./books.json',JSON.generate(content))
+    File.write('./books.json', JSON.generate(content))
   else
-    File.write('./books.json',JSON.generate([new_content]))
+    File.write('./books.json', JSON.generate([new_content]))
   end
   puts 'Book created successfully'
   sleep 2
@@ -84,6 +84,14 @@ def create_rental
     break if date.match(%r{\d{2,4}/\d{1,2}/\d{1,2}$})
   end
   Rental.new(date, all_person[person], all_books[book])
+  new_contenu = {date: date, id: all_person[person].id, book_nbr: book}
+  if File.exist?('./rentals.json')
+    contenu = JSON.parse(File.read('./rentals.json'))
+    contenu.push(new_contenu)
+    File.write('./rentals.json',JSON.generate(contenu))
+  else
+    File.write('./rentals.json',JSON.generate(new_contenu))
+  end
   puts 'Rental created successfully'
   sleep 2
 end

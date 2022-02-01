@@ -3,7 +3,6 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
-require './all_books'
 require './utils'
 
 def run_programme(option, option_text)
@@ -38,6 +37,29 @@ end
 
 def main
   puts "Welcome to School Libray App!\n"
+  if File.exist?('./persons.json')
+    contenu = JSON.parse(File.read('./persons.json'))
+    contenu.each do |person|
+      name = person['name']
+      age = person['age']
+      class_name = person['class']
+      if class_name == 'Student'
+        permission = person['perm']
+        Student.new(age, nil, name, permission)
+      else
+        specialization = person['specialization']
+        Teacher.new(age, specialization, name)
+      end
+    end
+  end
+  if File.exist?('./books.json')
+    contenu = JSON.parse(File.read('./books.json'))
+    contenu.each do |book|
+      title = book['title']
+      author = book['author']
+      Book.new(title, author)
+    end
+  end
   option_text = "
     Please choose an option by enterin a number:\n
     1 - List all books\n
