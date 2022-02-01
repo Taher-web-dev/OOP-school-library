@@ -60,6 +60,15 @@ def main
       Book.new(title, author)
     end
   end
+  if File.exist?('./rentals.json')
+    contenu = JSON.parse(File.read('./rentals.json'))
+    date = contenu['date']
+    person_id = contenu['id']
+    book_nb = contenu['book_nbr']
+    person = Person::ALL_PERSONS.all_persons.find {|per| per.id == person_id}
+    book = Book::ALL_BOOKS.all_books[book_nb]
+    Rental.new(date, person, book)
+  end
   option_text = "
     Please choose an option by enterin a number:\n
     1 - List all books\n

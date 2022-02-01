@@ -90,7 +90,7 @@ def create_rental
     contenu.push(new_contenu)
     File.write('./rentals.json',JSON.generate(contenu))
   else
-    File.write('./rentals.json',JSON.generate(new_contenu))
+    File.write('./rentals.json',JSON.generate([new_contenu]))
   end
   puts 'Rental created successfully'
   sleep 2
