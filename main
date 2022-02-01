@@ -65,7 +65,7 @@ def load_data
       date = rental['date']
       person_id = rental['id'].to_i
       book_nb = rental['book_nbr'].to_i
-      person = Person::ALL_PERSONS.all_persons.find {|per| per.id == person_id}
+      person = Person::ALL_PERSONS.all_persons.find { |per| per.id == person_id }
       book = Book::ALL_BOOKS.all_books[book_nb]
       Rental.new(date, person, book)
     end

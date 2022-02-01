@@ -84,13 +84,13 @@ def create_rental
     break if date.match(%r{\d{2,4}/\d{1,2}/\d{1,2}$})
   end
   Rental.new(date, all_person[person], all_books[book])
-  new_contenu = {date: date, id: all_person[person].id, book_nbr: book}
+  new_contenu = { date: date, id: all_person[person].id, book_nbr: book }
   if File.exist?('./rentals.json')
     contenu = JSON.parse(File.read('./rentals.json'))
     contenu.push(new_contenu)
-    File.write('./rentals.json',JSON.generate(contenu))
+    File.write('./rentals.json', JSON.generate(contenu))
   else
-    File.write('./rentals.json',JSON.generate([new_contenu]))
+    File.write('./rentals.json', JSON.generate([new_contenu]))
   end
   puts 'Rental created successfully'
   sleep 2
