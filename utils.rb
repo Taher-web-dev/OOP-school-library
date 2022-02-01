@@ -42,6 +42,14 @@ def create_book
   print 'Author: '
   author = gets.chomp
   Book.new(title, author)
+  new_content = {title: title, author: author}
+  if File.exist?('./books.json')
+    content = JSON.parse(File.read('./books.json'))
+    content.push(new_content)
+    File.write('./books.json',JSON.generate(content))
+  else
+    File.write('./books.json',JSON.generate([new_content]))
+  end
   puts 'Book created successfully'
   sleep 2
 end
