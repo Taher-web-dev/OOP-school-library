@@ -1,3 +1,4 @@
+require 'json'
 def create_person(option)
   age = 0
   loop do
@@ -7,6 +8,7 @@ def create_person(option)
   end
   print 'Name: '
   name = gets.chomp
+  new_content = nil
   case option
   when 1
     permission = ''
@@ -16,10 +18,19 @@ def create_person(option)
       break if %w[y n].include? permission.downcase
     end
     permission.downcase == 'y' ? Student.new(age, nil, name, true) : Student.new(age, nil, name, false)
+    new_content = {class: 'Student', age: age, name:name, perm: permission=='y' ? true : false }
   else
     print 'Specialization: '
     specialization = gets.chomp
     Teacher.new(age, specialization, name)
+    new_content = {class: 'Teacher', age: age, specialization: specialization, name: name}
+  end
+  if File.exist?('./persons.json')
+    content = JSON.parse(File.read('./persons.json'))
+    content.push(new_content)
+    File.write('./persons.json',JSON.generate(content))
+  else
+    File.write('./persons.json',JSON.generate([new_content]))
   end
   puts 'Person created successfully'
   sleep 2
