@@ -16,7 +16,4 @@ class Book
     rental.book = self
   end
 
-  def self.all_books
-    @@all_books
-  end
 end
