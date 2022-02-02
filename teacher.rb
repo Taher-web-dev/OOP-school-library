@@ -9,7 +9,4 @@ class Teacher < Person
     true
   end
 
-  def self.all_books
-    @@all_books
-  end
 end
