@@ -6,6 +6,6 @@ describe Corrector do
   end
   it 'Return only the first ten lettres using correct_name method' do
     corrector = Corrector.new
-    expect(corrector.correct_name('aabbccddeeffggghayy').length).to be<=10
+    expect(corrector.correct_name('aabbccddeeffggghayy').length).to be <= 10
   end
 end
