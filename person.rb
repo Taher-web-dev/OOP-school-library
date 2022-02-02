@@ -6,7 +6,6 @@ class Person
   attr_accessor :name, :age
 
   ALL_PERSONS = AllPersons.new
-  # @@all_persons = []
   def initialize(age, name = 'Unknown', parent_permission = true)
     @id = @@no_of_person
     @age = age
@@ -37,7 +36,4 @@ class Person
     rental.person = self
   end
 
-  def self.all_persons
-    @@all_persons
-  end
 end
