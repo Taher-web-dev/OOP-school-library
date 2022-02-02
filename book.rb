@@ -15,8 +15,4 @@ class Book
     @rentals << rental
     rental.book = self
   end
-
-  def self.all_books
-    @@all_books
-  end
 end

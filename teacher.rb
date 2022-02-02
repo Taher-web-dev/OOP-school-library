@@ -8,8 +8,4 @@ class Teacher < Person
   def can_use_services?
     true
   end
-
-  def self.all_books
-    @@all_books
-  end
 end
