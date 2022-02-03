@@ -1,10 +1,11 @@
 # OOP-school-library
 
-> OOP school libray application , is a tool which can record what books are in the library and who borrows them. So, It allows to :
+In this project, we achieved the following;
 
-   - Add new students or teachers.
-   - Add new books.
-   - Save records of who borrowed a given book and when.
+- Created a class called Solver.
+- Created a method called factorial that takes one argument, an integer N, and returns the factorial for that number.
+- Created a method called reverse that takes one argument, a string word, and returns word reversed (e.g. if word is "hello" it returns "olleh").
+- Created a method called fizzbuzz that takes one argument, an integer N, and returns a string.
 
 ## Built With
 - Ruby
